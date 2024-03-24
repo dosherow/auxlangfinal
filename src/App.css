@@ -1,0 +1,405 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Della+Respira&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet&display=swap');
+
+
+.App {
+  text-align: center;
+  background-color: #041B15;
+  color: white;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1440px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+body,
+html {
+  background-color: #041B15;
+}
+
+@media (pointer: fine) {
+
+  body,
+  html {
+    cursor: none;
+  }
+
+  .hover-scale {
+    cursor: none;
+  }
+
+  .circlebox {
+    cursor: none;
+  }
+
+  .custom-cursor {
+    display: block;
+  }
+}
+
+@media (pointer: coarse) {
+  .custom-cursor {
+    display: none;
+  }
+}
+
+.main-title {
+  flex: 1;
+  text-transform: uppercase;
+  font-size: 160px;
+  letter-spacing: 5px;
+  margin-top: 10px;
+  text-align: left;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  /* Align to the left side of the page */
+  margin-left: 20px;
+  /* Add left margin to adjust distance from the left edge */
+}
+
+.emailbox {
+  flex: auto;
+}
+
+.email {
+  font-family: 'Cormorant', sans-serif;
+  margin-top: -30px;
+  font-size: 80px;
+  font-style: italic;
+  font-weight: lighter;
+  animation: scroll 10s linear infinite;
+  /* Adjust the duration as needed */
+  text-align: left;
+  margin-left: 10px;
+  white-space: nowrap;
+  transition: background 0.4s ease-in-out;
+  /* Prevent text from breaking into a new line */
+  position: relative;
+  width: fit-content;
+  padding: 0 15px;
+  display: flex;
+  gap: 0 50px;
+  color: #fff;
+  text-decoration: none;
+  /* Relative position for the pseudo element */
+}
+
+.email::after {
+  content: "";
+  /* One copy of the email text */
+  position: absolute;
+  /* Position the content right next to the original text */
+  left: 100%;
+  /* Place it to the right of the original text */
+  white-space: nowrap;
+  /* Prevent text from breaking into a new line */
+}
+
+.email:hover::after {
+  background: linear-gradient(45deg, #97DE44, #39D140, #20AB8E);
+  transition: background 0.4s ease-in-out;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+    /* Scroll 100% of the width to show 2 texts */
+  }
+}
+
+.email:hover {
+  background: linear-gradient(45deg, #97DE44, #39D140, #20AB8E);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  /* For Safari */
+}
+
+.circle {
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+  height: 300px;
+  width: 300px;
+  background: linear-gradient(45deg, #97DE44, #39D140, #20AB8E);
+  border-radius: 50%;
+  overflow: hidden;
+  transition: transform 0.25s ease-in-out;
+  /* Transition effect for scaling */
+}
+
+.circle:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  /* Grow the circle 10% larger on hover */
+}
+
+.rotating-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 1.4em;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  white-space: nowrap;
+  margin-right: 3px;
+  /* Add margin to each letter */
+}
+
+.rotating-text-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.music-note {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 7em;
+  color: white;
+  transform: translate(-50%, -50%);
+}
+
+.about {
+  font-family: 'Cormorant', serif;
+  font-style: italic;
+  font-weight: 400;
+  position: absolute;
+  bottom: 50px;
+  left: 60px;
+  transform: rotate(270deg);
+  transform-origin: left bottom;
+  cursor: pointer;
+  font-size: 2em;
+  transition: background 0.2s ease-in-out;
+}
+
+.about:hover {
+  background: linear-gradient(45deg, #97DE44, #39D140, #20AB8E);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.footer-popup {
+  position: absolute;
+  font-size: 30px;
+  font-family: 'Syne', sans-serif;
+  text-align: left;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(45deg, #97DE44, #39D140, #20AB8E);
+  padding: 40px;
+  display: none;
+}
+
+.footer-popup.active {
+  display: block;
+}
+
+.footer-popup b {
+  font-weight: bold;
+}
+
+.close-popup {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  cursor: pointer;
+}
+
+.custom-cursor {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  background: linear-gradient(45deg, #97DE44, #39D140, #20AB8E);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: transform 0.15s ease-in-out, opacity 0.15s ease-in-out;
+  z-index: 9999;
+}
+
+.hover-effect {
+  transform: translate(-50%, -50%) scale(1.35);
+  opacity: 0.7;
+}
+
+.circle:hover+.custom-cursor {
+  cursor: pointer;
+}
+
+
+/*  */
+
+.circlebox {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  width: 176px;
+  height: 176px;
+  background: linear-gradient(45deg, #97DE44, #39D140, #20AB8E);
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s ease-out 0s;
+  transform-origin: center center;
+}
+
+.get_text {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  animation: spin 10s linear infinite;
+}
+
+.music-icon {
+  filter: invert(1);
+  width: 60px;
+  height: 60px;
+}
+
+.circlebox:hover {
+  transition: transform 0.4s ease-out 0s;
+}
+
+@media (max-width: 992px) {
+
+  .main-title {
+    font-size: 120px;
+  }
+
+  .email {
+    font-size: 60px;
+  }
+
+  .footer-popup {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .main-title {
+    font-size: 85px;
+  }
+  .email {
+    margin-top: -60px;
+    font-size: 55px;
+  }
+
+  .footer-popup {
+    font-size: 22px;
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 550px) {
+
+  .main-title {
+    font-size: 60px;
+  }
+  .email {
+    font-size: 32px;
+  }
+
+  .email {
+    gap: 0 10px;
+  }
+
+  .footer-popup {
+    font-size: 18px;
+    padding: 20px;
+  }
+
+  .circlebox {
+    width: 136px;
+    height: 136px;
+    right: 20px;
+    bottom: 20px;
+  }
+
+  .music-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .about {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 430px) {
+
+  .main-title {
+    font-size: 50px;
+  }
+  .email {
+    font-size: 32px;
+  }
+
+  .email {
+    gap: 0 10px;
+  }
+
+  .footer-popup {
+    font-size: 18px;
+    padding: 20px;
+  }
+
+  .circlebox {
+    width: 136px;
+    height: 136px;
+    right: 20px;
+    bottom: 20px;
+  }
+
+  .music-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .about {
+    font-size: 26px;
+  }
+}
