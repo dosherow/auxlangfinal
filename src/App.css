@@ -384,14 +384,14 @@ html {
 
   .footer-popup {
     font-size: 18px;
-    padding: 20px;
+    padding: 35px;
   }
 
   .circlebox {
     width: 136px;
     height: 136px;
     right: 20px;
-    bottom: 20px;
+    bottom: 90px;
   }
 
   .music-icon {
@@ -401,5 +401,6 @@ html {
 
   .about {
     font-size: 26px;
+    bottom: 115px;
   }
 }
